@@ -1,0 +1,31 @@
+FIRST_GROUP_OPERATOR (ADDITION, '+', "+", "ет")
+
+FIRST_GROUP_OPERATOR (SUBTRACTION, '-', "-", "ишь")
+
+FIRST_GROUP_OPERATOR (MULTIPLICATION, '*', "*", "ит")
+
+FIRST_GROUP_OPERATOR (DIVISION, '/', "/", "им")
+
+FIRST_GROUP_OPERATOR (POWER, '^', "^", "ем")
+
+FIRST_GROUP_OPERATOR (SIN, 's', "sin", "ете")
+
+FIRST_GROUP_OPERATOR (COS, 'c', "cos", "ите")
+
+FIRST_GROUP_OPERATOR (PRINT, 'p', "print", "ат")
+
+FIRST_GROUP_OPERATOR (SCAN, 'h', "scan", "ят")
+
+FIRST_GROUP_OPERATOR (ASSIGNMENT, 'a', "=", "ешь")
+
+FIRST_GROUP_OPERATOR (BREAK, ';', ";", "ют")
+
+FIRST_GROUP_OPERATOR (COMMA, ',', ",","ее")
+
+FIRST_GROUP_OPERATOR (RETURN, 'r', "return", "ут")
+
+FIRST_GROUP_OPERATOR (DECLARE, 'd', "decare", "-")
+
+FIRST_GROUP_OPERATOR (VAR, 'v', "variabe", ":")
+
+

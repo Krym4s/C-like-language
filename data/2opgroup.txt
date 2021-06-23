@@ -1,0 +1,28 @@
+SECOND_GROUP_OPERATOR (IF, 'i', "if", "да")
+
+SECOND_GROUP_OPERATOR (WHILE, 'w', "while", "или")
+
+SECOND_GROUP_OPERATOR (LR, 'l', "LR", "345")
+
+SECOND_GROUP_OPERATOR (EQUALITY, 'e', "==", "чей")
+
+SECOND_GROUP_OPERATOR (INEQUALITY, 'n', "!=", "сколько")
+
+SECOND_GROUP_OPERATOR (MORE, '>', ">", "кто")
+
+SECOND_GROUP_OPERATOR (LESS, '<', "<", "что")
+
+SECOND_GROUP_OPERATOR (MORE_OR_EQUAL, 'm', ">=", "какой")
+
+SECOND_GROUP_OPERATOR (LESS_OR_EQUAL, 'q', "<=", "который")
+
+SECOND_GROUP_OPERATOR (OFP, '{', "{", "если")
+
+SECOND_GROUP_OPERATOR (CFP, '}', "}", "будто")
+
+SECOND_GROUP_OPERATOR (OCP, '(', "(", "но")
+
+SECOND_GROUP_OPERATOR (CCP, ')', ")", "то")
+
+
+
