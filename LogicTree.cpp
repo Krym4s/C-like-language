@@ -140,12 +140,12 @@ void LogicDeclareVertex (FILE* graphicOutput, LogicElement* current)
                 #define FIRST_GROUP_OPERATOR(operatorName, operatorCode, textInterpret, codeInterpret) case operatorCode: \
                             fprintf (graphicOutput, "%c", operatorCode); break;
 
-                #include "1opgroup.txt"
+                #include "data/1opgroup.txt"
                 #undef FIRST_GROUP_OPERATOR
                 #define SECOND_GROUP_OPERATOR(operatorName, operatorCode, textInterpret, codeInterpret) case operatorCode: \
                                             fprintf (graphicOutput, "%c", operatorCode); break;
 
-                #include "2opgroup.txt"
+                #include "data/2opgroup.txt"
                 #undef SECOND_GROUP_OPERATOR
 
             } break;

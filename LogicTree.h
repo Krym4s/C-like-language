@@ -5,7 +5,7 @@
 #ifndef FRONTEND1_LOGICTREE_H
 #define FRONTEND1_LOGICTREE_H
 
-#include "IsE_text.h"
+#include "IsE_LinesF.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <wchar.h>
@@ -21,12 +21,12 @@ enum ElementType
 enum Operations
 {
 #define FIRST_GROUP_OPERATOR(operatorName, operatorCode, textInterpret, codeInterpret) operatorName = operatorCode,
-#include "1opgroup.txt"
+#include "data/1opgroup.txt"
 
 #undef FIRST_GROUP_OPERATOR
 
 #define SECOND_GROUP_OPERATOR(operatorName, operatorCode, textInterpret, codeInterpret) operatorName = operatorCode,
-#include "2opgroup.txt"
+#include "data/2opgroup.txt"
 
 #undef SECOND_GROUP_OPERATOR
 };
