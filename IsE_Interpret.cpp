@@ -1,5 +1,4 @@
 #include "IsE_Interpret.hpp"
-
 const char* STANDART_INPUT      = "data/russian_code.txt";
 const int   MISTAKE             = -1;
 

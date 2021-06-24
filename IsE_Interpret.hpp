@@ -1,7 +1,6 @@
 #include "IsE_LinesF.h"
 #include "LogicTree.h"
 #include "CyrillicCode.hpp"
-
 enum CompilationErrors
 {
     LAN_NO_INPUT_FILE          = -4,
@@ -18,7 +17,8 @@ struct Vocabulary
     unsigned int index;
 };
 
-struct TrVocabulary//
+
+struct TrVocabulary
 {
     char** vocabulary;
     unsigned int size;
