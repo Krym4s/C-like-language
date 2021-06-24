@@ -1,7 +1,7 @@
 all: frontend
 
 frontend: main.o IsE_Interpret.o IsE_LinesF.o
-	g++ main.o IsE_Interpret.o -o IsE_LinesF.o makeTree
+	g++ main.o IsE_Interpret.o IsE_LinesF.o -o  makeTree
 
 main.o: main.cpp
 	g++ -c main.cpp 

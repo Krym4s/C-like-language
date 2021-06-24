@@ -1,5 +1,6 @@
 #include "IsE_LinesF.h"
 #include "LogicTree.h"
+#include "CyrillicCode.hpp"
 
 enum CompilationErrors
 {
@@ -17,7 +18,7 @@ struct Vocabulary
     unsigned int index;
 };
 
-struct TrVocabulary
+struct TrVocabulary//
 {
     char** vocabulary;
     unsigned int size;
@@ -32,22 +33,16 @@ struct TokenSplitter
     unsigned int    numberOfElements;
 };
 
-
-const char* STANDART_INPUT      = "data/russian_code.txt";
-const int   MISTAKE             = -1;
-
-const int   START_TOKEN_NUMBER  = 1000;
-
 //!-------------------------------------------------
 //! handles input and remembers code as vocabulary
 //! @param [in] nArgs  - number of arguments in main
 //! @param [in] args   - args of main
 //!
 //! @param [out] nTokens - number of Tokens
-//! @param [out] codeBuf - buffer with code
+//! @param [out] tokens - lexical unit array
 //!-------------------------------------------------
 
-CompilationErrors SplitInputToTokens (int nArgs, char* args[], int* nTokens, char* buffer); 
+CompilationErrors SplitInputToTokens (int nArgs, char* args[], int* nTokens, LogicElement** tokens); 
 
 //!-------------------------------------------------
 //! split code written in string ti tikens
@@ -69,6 +64,24 @@ int GetTokens (const char* codeBuf, LogicElement** tokens);
 
 int IsSpace (const char symb);
 
+ //!-------------------------------------------------
+ //! @brief checks if symbol means something
+ //! 
+ //! @param [in] symb - symbol
+ //! @return int - 0 if no 1 if yes
+ //!-------------------------------------------------
+
+int IsTerminal (const char symb);
+
+ //!-------------------------------------------------
+ //! @brief check if symbol is lettee
+ //! 
+ //! @param symb - symbol
+ //! @return int - 0 if no, 1 if  yes
+ //!-------------------------------------------------
+
+int IsAlpha (const char symb);
+
 //!--------------------------------------------------
 //! Skips all spaces in string 
 //! @param [in] buffer - string
@@ -78,3 +91,87 @@ int IsSpace (const char symb);
 //!--------------------------------------------------
 
 unsigned int SkipSpaces (const char* buffer, unsigned int* index);
+
+ //!-------------------------------------------------
+ //! @brief skips all alphas in string
+ //! 
+ //! @param buffer - string
+ //! @param index  - number of begining symbol in string
+ //! @return unsigned int 
+ //!-------------------------------------------------
+
+unsigned int SkipAlphas (const char* buffer, unsigned int* index);
+
+ //!-------------------------------------------------
+ //! @brief Enlarge toens array if it is necessary
+ //!
+ //! @param [out] splitter - structure that handles token array  
+ //! @return CompilationErrors - error code
+ //!-------------------------------------------------
+CompilationErrors TokensNumberFit (TokenSplitter* splitter);
+
+ //!-------------------------------------------------
+ //! @brief 
+ //! 
+ //! @param [in] codeBuf - buffer with IsE code
+ //! @param [out] splitter - tokens handle structure
+ //! @return CompilationErrors - error code
+ //!-------------------------------------------------
+
+int HandleNumber (const char* codeBuf, TokenSplitter* splitter);
+
+ //!-------------------------------------------------
+ //! @brief this function is called if there is syntax error in IsE code
+ //! 
+ //! @param codeBuf - buffer with code
+ //! @param splitter - code handler
+ //! @return int 
+ //!-------------------------------------------------
+
+int SyntaxError (const char* codeBuf, TokenSplitter* splitter);
+
+ //!-------------------------------------------------
+ //! @brief handles tokens that are not numbers 
+ //! 
+ //! @param buffer - buffer with code 
+ //! @param splitter - code handle structure
+ //! @return CompilationErrors - error code
+ //!-------------------------------------------------
+
+CompilationErrors HandleID (const char* buffer, TokenSplitter* splitter);
+
+ //!-------------------------------------------------
+ //! @brief handle operators of type 1 
+ //! 
+ //! @param buffer - buffer with IsE cide
+ //! @param splitter - structure that handles code tokens 
+ //! @param length - length of ID
+ //! @return int 
+ //!-------------------------------------------------
+
+
+int HandleOperatorType1 (const char* buffer, TokenSplitter* splitter, unsigned int length);
+
+ //!-------------------------------------------------
+ //! @brief handle operators of type 2 
+ //! 
+ //! @param buffer - buffer with IsE cide
+ //! @param splitter - structure that handles code tokens 
+ //! @param length - length of ID
+ //! @return int 
+ //!-------------------------------------------------
+
+int HandleOperatorType2 (const char* buffer, TokenSplitter* splitter, unsigned int length);
+
+
+ //!-------------------------------------------------
+ //! @brief handle functions and variable names 
+ //! 
+ //! @param buffer - buffer with IsE cide
+ //! @param splitter - structure that handles code tokens 
+ //! @param length - length of ID
+ //! @return int 
+ //!-------------------------------------------------
+
+int HandleFunction (const char* buffer, TokenSplitter* splitter, unsigned int length);
+

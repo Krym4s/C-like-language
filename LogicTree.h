@@ -8,7 +8,7 @@
 #include "IsE_LinesF.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <wchar.h>
+
 
 enum ElementType
 {
@@ -44,7 +44,7 @@ enum LogicTreeError
 union ElementValue
 {
     double numberValue;
-    wchar_t* ID;
+    char* ID;
     char operatorType;
 };
 

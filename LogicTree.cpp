@@ -49,12 +49,12 @@ LogicElement* CreateNode (LogicTree* tree, ElementType type, ElementValue value,
     TreeOK
     return current;
 }
-char* Tranclate (wchar_t* rus)
+char* Tranclate (char* rus)
 {
     setlocale(LC_ALL, "Russian");
     char* eng = (char*) calloc (100, sizeof(char));
     char* write = eng;
-    for (int i = 0; i < wcslen (rus); i++)
+    for (int i = 0; i < strlen (rus); i++)
     {
             if (rus[i] == 'а' )     {*write++ = 'a'; }
             else if (rus[i] == 'б') {*write++ = 'b'; }
@@ -99,14 +99,14 @@ LogicTreeError LogicTreeDump (LogicTree* tree)
 
     FILE* graphicOutput = tree->graphicOutput;
 
-    fwprintf (graphicOutput, L"digraph LIST{\n");
-    fwprintf (graphicOutput, L"\t" "rankdir = TB;\n");
+    fprintf (graphicOutput, "digraph LIST{\n");
+    fprintf (graphicOutput, "\t" "rankdir = TB;\n");
 
     LogicDeclareVertex (graphicOutput, tree->root);
     LogicDrawVertex (graphicOutput, tree->root);
     printf("c\n");
 
-    fwprintf (graphicOutput, L"}\n");
+    fprintf (graphicOutput, "}\n");
 
     fclose (graphicOutput);
     char command[100] = "";
@@ -122,19 +122,19 @@ void LogicDeclareVertex (FILE* graphicOutput, LogicElement* current)
     if (!current)
         return;
     printf("%d, %d\n", current->type, current->value.operatorType);
-    fwprintf (graphicOutput, L"\"%p\"[shape=record, color=", current);
+    fprintf (graphicOutput, "\"%p\"[shape=record, color=", current);
     if (current->leftChild || current->rightChild)
-        fwprintf (graphicOutput, L"\"blue4\",style=\"filled\",fillcolor=\"aquamarine\"");
+        fprintf (graphicOutput, "\"blue4\",style=\"filled\",fillcolor=\"aquamarine\"");
     else
-        fwprintf (graphicOutput, L"\"green4\",style=\"filled\",fillcolor=\"green1\"");
+        fprintf (graphicOutput, "\"green4\",style=\"filled\",fillcolor=\"green1\"");
 
-    fwprintf (graphicOutput, L",label=\"   { current =  %p | left = %p | right = %p | tree = %p | type = %ls | value = ",
+    fprintf (graphicOutput, ",label=\"   { current =  %p | left = %p | right = %p | tree = %p | type = %ls | value = ",
              current, current->leftChild, current->rightChild, current->tree, typeName (current->type));
     switch (current->type)
     {
         case VARIABLE: fprintf (graphicOutput, "%s", Tranclate(current->value.ID)); break;
         case NUMBER: fprintf (graphicOutput, "%lg", current->value.numberValue); break;
-        case OPERATOR: //fwprintf (graphicOutput, L"%d", 1); break;
+        case OPERATOR: //fwprintf (graphicOutput, "%d", 1); break;
             switch (current->value.operatorType)
             {
                 #define FIRST_GROUP_OPERATOR(operatorName, operatorCode, textInterpret, codeInterpret) case operatorCode: \
@@ -151,7 +151,7 @@ void LogicDeclareVertex (FILE* graphicOutput, LogicElement* current)
             } break;
         case FUNCTION: fprintf (graphicOutput, "%s", Tranclate(current->value.ID)); break;
     }
-    fwprintf (graphicOutput, L"} \"];");
+    fprintf (graphicOutput, "} \"];");
 
 
     LogicDeclareVertex (graphicOutput, current->rightChild);
@@ -168,12 +168,12 @@ void LogicDrawVertex (FILE* graph_logs, LogicElement* current)
 
     if (current->leftChild)
     {
-        fwprintf (graph_logs, L"\"%p\" -> \"%p\"[label=\"left\"];\n", current, current->leftChild);
+        fprintf (graph_logs, "\"%p\" -> \"%p\"[label=\"left\"];\n", current, current->leftChild);
         LogicDrawVertex (graph_logs, current->leftChild);
     }
     if (current->rightChild)
     {
-        fwprintf (graph_logs, L"\"%p\" -> \"%p\"[label=\"right\"];\n", current, current->rightChild);
+        fprintf (graph_logs, "\"%p\" -> \"%p\"[label=\"right\"];\n", current, current->rightChild);
         LogicDrawVertex (graph_logs, current->rightChild);
     }
 }
