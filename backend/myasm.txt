@@ -1,0 +1,20 @@
+PUSH 0; set begin
+POP rax
+PUSH 1
+POP rcx
+
+golova:
+
+PUSH rcx;iteration 
+PUSH 1
+ADD
+POP rcx
+
+PUSH 0; number get
+POP [ rax + 1 ]; accorded to asignment
+IN
+POP [ rax + 1 ]; accorded to IN
+PUSH [ rax + 1 ]; variable get
+OUT
+
+HLT; halt
