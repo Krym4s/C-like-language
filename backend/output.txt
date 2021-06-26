@@ -1,0 +1,272 @@
+
+{
+'d
+
+	{
+	$golova
+
+		{nil}
+
+		{
+		'l
+
+			{
+			'l
+
+				{
+				'v
+
+					{nil}
+
+					{
+					#lob
+
+						{nil}
+
+						{nil}
+					}
+				}
+
+				{
+				'a
+
+					{
+					#lob
+
+						{nil}
+
+						{nil}
+					}
+
+					{
+					?0
+
+						{nil}
+
+						{nil}
+					}
+				}
+			}
+
+			{
+			'l
+
+				{
+				'h
+
+					{
+					#lob
+
+						{nil}
+
+						{nil}
+					}
+
+					{nil}
+				}
+
+				{
+				'l
+
+					{
+					'a
+
+						{
+						#lob
+
+							{nil}
+
+							{nil}
+						}
+
+						{
+						$chudo
+
+							{
+							',
+
+								{
+								#lob
+
+									{nil}
+
+									{nil}
+								}
+
+								{nil}
+							}
+
+							{nil}
+						}
+					}
+
+					{
+					'l
+
+						{
+						'p
+
+							{
+							#lob
+
+								{nil}
+
+								{nil}
+							}
+
+							{nil}
+						}
+
+						{
+						'l
+
+							{nil}
+
+							{nil}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	{
+	'd
+
+		{
+		$chudo
+
+			{
+			'v
+
+				{nil}
+
+				{
+				#podvoh
+
+					{nil}
+
+					{nil}
+				}
+			}
+
+			{
+			'l
+
+				{
+				'i
+
+					{
+					'e
+
+						{
+						#podvoh
+
+							{nil}
+
+							{nil}
+						}
+
+						{
+						?1
+
+							{nil}
+
+							{nil}
+						}
+					}
+
+					{
+					'l
+
+						{
+						'r
+
+							{
+							?1
+
+								{nil}
+
+								{nil}
+							}
+
+							{nil}
+						}
+
+						{
+						'l
+
+							{nil}
+
+							{nil}
+						}
+					}
+				}
+
+				{
+				'l
+
+					{
+					'r
+
+						{
+						'*
+
+							{
+							#podvoh
+
+								{nil}
+
+								{nil}
+							}
+
+							{
+							$chudo
+
+								{
+								',
+
+									{
+									'-
+
+										{
+										#podvoh
+
+											{nil}
+
+											{nil}
+										}
+
+										{
+										?1
+
+											{nil}
+
+											{nil}
+										}
+									}
+
+									{nil}
+								}
+
+								{nil}
+							}
+						}
+
+						{nil}
+					}
+
+					{
+					'l
+
+						{nil}
+
+						{nil}
+					}
+				}
+			}
+		}
+
+		{nil}
+	}
+}

@@ -1,0 +1,80 @@
+PUSH 0; set begin
+POP rax
+PUSH 1
+POP rcx
+
+golova:
+
+PUSH rcx;iteration 
+PUSH 1
+ADD
+POP rcx
+
+PUSH 0; number get
+POP [ rax + 1 ]; accorded to asignment
+IN
+POP [ rax + 1 ]; accorded to IN
+PUSH rcx; remember rcx
+POP rbx
+
+PUSH [ rax + 1 ]; variable get
+POP [ rbx + 1 ]; arg of called function
+
+PUSH rcx;iteration 
+PUSH 1
+ADD
+POP rcx
+
+PUSH rax; move stack idx
+POP [ rbx ]
+PUSH rbx
+POP rax
+
+CALL : chudo
+POP [ rax + 1 ]; accorded to asignment
+PUSH [ rax + 1 ]; variable get
+OUT
+
+HLT; halt
+chudo:
+PUSH [ rax + 1 ]; variable get
+PUSH 1; number get
+JNE : 0
+
+PUSH 1; number get
+PUSH rax ; ret prepare
+POP rcx
+PUSH [ rax ]
+POP rax
+RET
+
+
+0:
+PUSH [ rax + 1 ]; variable get
+PUSH rcx; remember rcx
+POP rbx
+
+PUSH [ rax + 1 ]; variable get
+PUSH 1; number get
+SUB
+POP [ rbx + 1 ]; arg of called function
+
+PUSH rcx;iteration 
+PUSH 1
+ADD
+POP rcx
+
+PUSH rax; move stack idx
+POP [ rbx ]
+PUSH rbx
+POP rax
+
+CALL : chudo
+MUL
+PUSH rax ; ret prepare
+POP rcx
+PUSH [ rax ]
+POP rax
+RET
+
+

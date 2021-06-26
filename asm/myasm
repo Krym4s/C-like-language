@@ -1,0 +1,37 @@
+PUSH 1
+POP rax
+PUSH 1 
+POP rbx
+
+
+PUSH 1000000
+POP rcx
+CALL : frac
+
+PUSH rax
+OUT 
+HLT
+
+frac:
+POP rdx
+
+cycle:
+PUSH rcx
+PUSH rbx
+
+JA : return
+
+PUSH rax
+PUSH rbx
+MUL
+
+POP rax
+PUSH rbx
+PUSH 1
+ADD
+POP rbx
+JMP : cycle
+
+return:
+PUSH rdx
+RET
